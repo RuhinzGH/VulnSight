@@ -1,0 +1,81 @@
+{
+  "flows": [
+    {
+      "id": "flow-1",
+      "timestamp": "2025-10-11T12:00:00Z",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/user/42",
+        "headers": {
+          "Accept": "application/json",
+          "User-Agent": "VulnSight-Demo/1.0"
+        },
+        "body": null
+      },
+      "original_response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache"
+        },
+        "body": {
+          "id": 42,
+          "name": "Alice",
+          "isAdmin": false,
+          "email": "alice@example.local"
+        }
+      },
+      "modified_response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+          "X-Injected-By": "mitm-demo"
+        },
+        "body": {
+          "id": 42,
+          "name": "Alice",
+          "isAdmin": true,
+          "email": "alice@example.local"
+        }
+      },
+      "notes": "Proxy modified isAdmin flag to illustrate tampering; added X-Injected-By header."
+    },
+    {
+      "id": "flow-2",
+      "timestamp": "2025-10-11T12:05:00Z",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:5000/api/login",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "username": "bob",
+          "password": "••••••"
+        }
+      },
+      "original_response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "status": "ok",
+          "token": "eyJhbGci..."
+        }
+      },
+      "modified_response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "status": "ok",
+          "token": "eyJhbGci... (modified)"
+        }
+      },
+      "notes": "Token value obfuscated to show response body tampering example."
+    }
+  ]
+}

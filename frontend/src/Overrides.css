@@ -1,0 +1,11 @@
+/* Force main-title to be consistent everywhere */
+body .main-title {
+  font-size: 24px !important;
+  line-height: 26px !important;
+  margin: 0 !important;
+  transform: none !important;
+  position: relative !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  -webkit-text-size-adjust: 100% !important;
+}
