@@ -1,0 +1,293 @@
+/* === Minimal Hacker UI: Target Configuration (Final Hybrid) === */
+
+/* =========================
+   Base Variables
+========================= */
+:root {
+  --bg-dark: #0b0f12;
+  --bg-card: #141b21;
+  --accent-green: #3eea83;
+  --accent-soft: rgba(62, 234, 131, 0.4);
+  --text-green: #b6ffcb;
+  --text-dim: #7ecfa2;
+  --border-muted: rgba(62, 234, 131, 0.08);
+}
+
+/* =========================
+   Main Card
+========================= */
+.scan-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 85%;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 0 8px rgba(58, 208, 137, 0.15);
+}
+
+/* =========================
+   Matrix Background Overlay
+========================= */
+.matrix-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(0deg, rgba(62, 234, 131, 0.05) 1px, transparent 1px);
+  background-size: 1px 20px;
+  animation: matrix-slide 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes matrix-slide {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 20px; }
+}
+
+/* =========================
+   Header
+========================= */
+.scan-header {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 2px rgba(62, 234, 131, 0.3);
+}
+
+/* =========================
+   Input Group
+========================= */
+.scan-input-group {
+  margin-bottom: 2rem;
+}
+
+.scan-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* =========================
+   Input + Button Container
+========================= */
+.scan-input-container {
+  display: flex;
+  background: rgba(20, 30, 20, 0.4);
+  border: 1.5px solid rgba(62, 234, 131, 0.4);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(62, 234, 131, 0.15);
+}
+
+/* =========================
+   Input Field
+========================= */
+.scan-input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: var(--text-green);
+  border: none;
+  border-right: none;
+  border-radius: 0.75rem 0 0 0.75rem;
+  outline: none;
+}
+
+.scan-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* =========================
+   Button
+========================= */
+.scan-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(30, 45, 30, 0.8);
+  color: var(--accent-green);
+  border-left: 1.5px solid rgba(62, 234, 131, 0.4);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.scan-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(62, 234, 131, 0.25);
+}
+
+.scan-button.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* =========================
+   Icons
+========================= */
+.icon-search,
+.icon-spin {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-spin {
+  animation: spin 1s linear infinite;
+  color: #0b0f12; /* visible black spinner */
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%)
+          hue-rotate(0deg) brightness(90%) contrast(100%);
+}
+
+/* =========================
+   Keyframes
+========================= */
+@keyframes pulse {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.015); } /* stronger pulse */
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* =========================
+   Progress Bar
+========================= */
+.scan-progress-wrapper {
+  margin-top: 1rem;
+}
+
+.scan-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  margin-bottom: 0.25rem;
+}
+
+.scan-progress-bar {
+  width: 100%;
+  height: 0.75rem;
+  background: #111;
+  border: 1px solid rgba(62, 234, 131, 0.3);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: inset 0 0 4px rgba(62, 234, 131, 0.1);
+}
+
+.scan-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green), #a7f3d0);
+  border-radius: 0.5rem;
+  transition: width 0.3s ease-out;
+  animation: pulse 1.2s infinite;
+}
+
+.scan-progress-desc {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* =========================
+   Start Scan Button
+========================= */
+.start-scan-button {
+  background-color: var(--accent-green);
+  color: #0b0f12;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  margin-left: 0;
+  border-left: 1px solid rgba(62, 234, 131, 0.4);
+  border-radius: 0 0.75rem 0.75rem 0;
+  box-shadow: 0 0 8px rgba(62, 234, 131, 0.3);
+  transition: all 0.3s ease;
+}
+
+.start-scan-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(62, 234, 131, 0.4);
+}
+
+/* =========================
+   Export Button (Top Right)
+========================= */
+.scan-top-right-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-green);
+  color: #0b0f12;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(62, 234, 131, 0.4);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.export-btn:hover {
+  background: #52f29a;
+  box-shadow: 0 0 10px rgba(62, 234, 131, 0.3);
+}
+
+.export-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+/* =========================
+   Spinner + Countdown
+========================= */
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 8px;
+  color: #0b0f12;
+  animation: spin 1s linear infinite;
+}
+
+.time-text {
+  margin-left: 0.25rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* =========================
+   Deprecated Animations
+========================= */
+@keyframes progress-bounce {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.03); }
+}
+
+.scan-progress-fill.bouncing {
+  animation: progress-bounce 0.6s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.03); }
+  60%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+.bounce {
+  animation: bounce 0.6s ease;
+}

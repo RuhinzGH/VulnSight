@@ -1,0 +1,231 @@
+/* ================================
+   Login.css – Unified Minimal Hacker Theme
+   Matches Results Summary palette (neon teal-green tones)
+   No layout/orientation changes
+================================ */
+
+:root {
+  --dark-bg: #0d1117;
+  --card-bg: #161b22;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --neon-green: #00ff9c;
+  --muted-green: #3ad089;
+  --text-light: #d1d5db;
+  --text-muted: #9ca3af;
+}
+
+/* --- Global / Container Styling --- */
+.login-container {
+  min-height: 100vh;
+  flex-direction: column;
+  background: var(--dark-bg);
+  font-family: "Inter", sans-serif;
+  color: var(--text-light);
+}
+
+/* --- Card & Form Styling --- */
+.card-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 25vh;
+  padding-bottom: 4rem;
+}
+
+.login-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2.5rem 3rem;
+  width: 380px;
+  box-shadow: 0 0 10px rgba(58, 208, 137, 0.15);
+  text-align: center;
+}
+
+/* Title inside card */
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--muted-green);
+  text-shadow: 0 0 4px rgba(58, 208, 137, 0.3);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* --- Tab Switcher Styling --- */
+.tab-switcher {
+  display: flex;
+  margin-bottom: 2rem;
+  background-color: #1b2330;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 0.3rem;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.75rem 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  color: var(--dark-bg);
+  background: linear-gradient(90deg, var(--neon-green), var(--muted-green));
+  box-shadow: 0 0 6px rgba(58, 208, 137, 0.4);
+}
+
+/* --- Input Field Styling --- */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.icon-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #1b2330;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.icon-input-wrapper i {
+  color: var(--text-muted);
+  margin-left: 1rem;
+  margin-right: 0.75rem;
+  font-size: 1rem;
+}
+
+.icon-input-wrapper input {
+  flex-grow: 1;
+  padding: 1.1rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  outline: none;
+  font-size: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.icon-input-wrapper input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.icon-input-wrapper:focus-within {
+  border-color: var(--muted-green);
+  box-shadow: 0 0 8px rgba(58, 208, 137, 0.3);
+  transform: scale(1.01);
+}
+
+/* --- Autofill Fix --- */
+.icon-input-wrapper input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--dark-bg) inset !important;
+  -webkit-text-fill-color: var(--text-light) !important;
+}
+
+.icon-input-wrapper input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px var(--dark-bg) inset !important;
+  -moz-text-fill-color: var(--text-light) !important;
+}
+
+/* --- Main Submit Button --- */
+.login-btn {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--dark-bg);
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--neon-green), var(--muted-green));
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(58, 208, 137, 0.25);
+}
+
+.login-btn:hover {
+  box-shadow: 0 0 18px rgba(58, 208, 137, 0.4);
+  transform: translateY(-1px);
+}
+
+/* --- Footer Link --- */
+.card-footer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.link-text {
+  color: var(--neon-green);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link-text:hover {
+  text-shadow: 0 0 2px rgba(58, 208, 137, 0.3);
+}
+
+/* --- Close Button --- */
+.close-btn {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ff1a1a;
+  transform: scale(1.15);
+}
+
+/* --- Misc --- */
+.main-title {
+  font-size: 40px !important;
+  line-height: 44px !important;
+  letter-spacing: 1px !important;
+  margin: 0 !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  font-family: "Inter", sans-serif !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--muted-green);
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+.error-message {
+  color: #dc2626;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
