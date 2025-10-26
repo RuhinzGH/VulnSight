@@ -8,3 +8,8 @@ A security tool for detecting and analyzing vulnerabilities.
 
 ## Setup
 Each folder will have its own setup guide.
+
+
+To run:
+- From backend, run "python -m uvicorn server:app --reload"
+- From frontend, run "npm run dev"
