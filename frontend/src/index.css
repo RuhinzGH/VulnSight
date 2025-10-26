@@ -258,45 +258,47 @@ input:focus, select:focus {
   letter-spacing: 0.1em;
 }
 .main-title.neon-text { text-shadow: 0 0 8px var(--neon-green); }
+/* --- AI Summary Card (Centered + Consistent) --- */
 .ai-summary-card {
   position: relative;
-  background-color: var(--card-bg); /* use same as vulnerability cards */
-  padding: 1.5rem 2rem;
+  background-color: var(--bg-dark);
+  padding: 1rem 1.5rem;
   border-radius: 1rem;
-  border: 1px solid var(--border-muted); /* match the other cards */
-  box-shadow: 0 0 15px rgba(62,234,131,0.2);
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 0 10px rgba(58, 208, 137, 0.15);
+  display: flex;
+  flex-direction: column;
   color: var(--text-primary);
-  font-family: 'JetBrains Mono', monospace; /* match main font */
-  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
-  
-  /* Spacing adjustments */
-  margin: 1.5rem 0; /* top & bottom spacing like other cards */
+  animation: card-fade-in 0.4s ease-out forwards;
+  max-width: 85%;
+  margin: 1.5rem auto; /* centers horizontally */
+  transform: none; /* no horizontal shift */
 }
 
-
-/* Hover glow */
 .ai-summary-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(58, 208, 137, 0.3), 0 0 40px rgba(58, 208, 137, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(58, 208, 137, 0.25);
 }
 
-/* Inner elements styling */
+/* --- Header --- */
 .ai-summary-card h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--neon-green);
-  text-shadow: 0 0 5px var(--neon-green), 0 0 10px rgba(0, 255, 156, 0.5);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--muted-green);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 6px rgba(58, 208, 137, 0.3);
 }
 
+/* --- Content --- */
 .ai-summary-card p,
 .ai-summary-card li,
 .ai-summary-card pre {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -305,48 +307,39 @@ input:focus, select:focus {
   padding: 0.75rem;
   border-radius: 0.75rem;
   overflow-x: auto;
-  box-shadow: inset 0 0 5px rgba(58, 208, 137, 0.1);
   color: var(--neon-green);
+  box-shadow: inset 0 0 5px rgba(58, 208, 137, 0.1);
 }
 
-/* Subtle pulsing border */
+/* --- Hover Light Sweep --- */
 .ai-summary-card::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  border-radius: 1rem;
-  border: 1px solid rgba(58, 208, 137, 0.3);
-  opacity: 0.5;
-  animation: pulse-border 4s infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes pulse-border {
-  0% { box-shadow: 0 0 8px rgba(58,208,137,0.2); }
-  50% { box-shadow: 0 0 20px rgba(58,208,137,0.4); }
-  100% { box-shadow: 0 0 8px rgba(58,208,137,0.2); }
-}
-
-/* Light sweep effect */
-.ai-summary-card::after {
   content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(58,208,137,0.1), transparent);
+  background: linear-gradient(120deg, transparent, rgba(58, 208, 137, 0.1), transparent);
   transform: skewX(-15deg);
 }
 
-.ai-summary-card:hover::after {
+.ai-summary-card:hover::before {
   animation: light-sweep 0.8s forwards;
 }
 
+/* --- Animations --- */
 @keyframes light-sweep {
   from { left: -100%; }
   to { left: 120%; }
+}
+
+@keyframes card-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
