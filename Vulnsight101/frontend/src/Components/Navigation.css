@@ -1,0 +1,207 @@
+/* ================================
+   Navigation.css – Minimal Hacker Theme
+   Sleek + subtle cyber look, reduced glow, better color balance
+================================ */
+
+/* --- Color Palette --- */
+:root {
+  --bg-dark: #0d1117;
+  --bg-card: #161b22;
+  --border-muted: rgba(255, 255, 255, 0.08);
+  --accent-green: #3ad089;
+  --accent-hover: #6ef3ae;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+}
+
+/* --- Navigation Container --- */
+.main-nav-container {
+   position: fixed; /* 👈 keeps it on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(13, 17, 23, 0.95); /* slightly transparent for hacker-glass effect */
+  backdrop-filter: blur(8px); /* gives it that cool frosted vibe */
+  box-shadow: 0 1px 6px rgba(58, 208, 137, 0.2);
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+/* --- Wrapper for left + right sections --- */
+.nav-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Left side: Logo + Title --- */
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Logo / Lock square */
+.logo-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--accent-green);
+  border-radius: 0.4rem;
+  box-shadow: 0 0 6px rgba(58, 208, 137, 0.15);
+}
+
+/* Heroicons Lock inside */
+.lock-icon {
+  width: 1.3rem !important;
+  height: 1.3rem !important;
+  color: var(--accent-green) !important;
+  filter: drop-shadow(0 0 2px rgba(58, 208, 137, 0.25));
+}
+
+/* Main title */
+.main-title {
+  font-size: 1.45rem !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  color: var(--accent-green) !important;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px rgba(58, 208, 137, 0.25) !important;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* White part of brand */
+.white-neon-text {
+  color: var(--text-primary) !important;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* --- Right side: Date/Time + VS Circle --- */
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Date/Time */
+.datetime-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+/* VS Circle */
+.vs-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 0 4px rgba(58, 208, 137, 0.2);
+  transition: all 0.25s ease;
+}
+
+.vs-circle:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 6px rgba(58, 208, 137, 0.25);
+}
+
+.vs-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+/* --- Dropdown for logged-in user --- */
+.vs-dropdown {
+  position: absolute;
+  right: 0;
+  top: 42px;
+  background: var(--bg-card);
+  padding: 0.8rem 1.1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  min-width: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Logout button inside dropdown */
+.logout-btn {
+  background-color: var(--accent-green);
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.35rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.04);
+}
+
+/* User info beside Date/Time */
+.nav-datetime-user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
+  position: relative;
+  bottom: -3px;
+}
+
+.nav-user-info {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-top: 3px;
+  opacity: 0.9;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.nav-user-info strong {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .nav-user-info {
+    font-size: 0.8rem;
+  }
+}
+.logo-img {
+  height: 80px; /* adjust as needed */
+  width: auto;
+  display: block;
+}
+/* --- Page padding for fixed nav --- */
+body, .page-content, .login-container {
+  padding-top: 90px; /* Adjust this based on navbar height */
+}
+/* Sticky navbar for all pages */
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Push page content below the sticky navbar */
+.page-content {
+  margin-top: 100px;
+}

@@ -1,0 +1,204 @@
+/* === Minimal Hacker Theme: Intro === */
+
+.intro-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-dark); /* #0d1117 */
+  font-family: monospace;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 50;
+}
+
+/* Matrix canvas */
+/* Matrix canvas full green theme */
+.matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  font-family: monospace;
+  color: rgba(62, 234, 131, 0.8); /* soft neon green for characters */
+  text-shadow: 
+    0 0 2px rgba(62, 234, 131, 0.6),
+    0 0 4px rgba(62, 234, 131, 0.5),
+    0 0 6px rgba(62, 234, 131, 0.3); /* subtle glow */
+}
+
+/* Optional: faint gradient overlay for depth */
+.matrix-canvas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    0deg,
+    rgba(62, 234, 131, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 1px 20px;
+  animation: matrix-slide 6s linear infinite;
+}
+
+/* Scroll animation */
+@keyframes matrix-slide {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 20px; }
+}
+
+/* Optional subtle flicker of individual characters */
+@keyframes matrix-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* If rendering actual characters with JS: */
+.matrix-char {
+  animation: matrix-flicker 1.5s infinite;
+  color: rgba(62, 234, 131, 0.85);
+  text-shadow: 0 0 2px rgba(62, 234, 131, 0.5);
+}
+
+/* Skull wrapper & glow */
+.skull-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neon-skull-glow {
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  filter: blur(8px) brightness(2)
+          drop-shadow(0 0 20px var(--muted-green))
+          drop-shadow(0 0 30px var(--muted-green))
+          drop-shadow(0 0 40px var(--muted-green));
+  animation: flicker 2s infinite, pulse 3s infinite;
+  z-index: 0;
+}
+
+.neon-skull {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  z-index: 1;
+}
+
+/* Titles */
+.intro-title {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--muted-green);
+  text-shadow: 0 0 15px var(--muted-green), 0 0 30px var(--muted-green);
+  animation: flicker 2s infinite;
+  z-index: 1;
+}
+
+.intro-subtitle {
+  margin-top: 0.5rem;
+  color: #3eea83; /* lighter neon green */
+  text-shadow: 0 0 10px var(--muted-green);
+  z-index: 1;
+}
+
+.intro-click {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #a7f3d0;
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+  z-index: 1;
+}
+
+/* Flicker & pulse keyframes */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.4; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+}
+
+/* Background video full screen */
+.intro-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.intro-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: transparent;
+}
+
+/* Logo */
+.intro-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  height: 120px;
+  width: auto;
+}
+
+/* Text block left of skull */
+.intro-text {
+  position: absolute;
+  bottom: 20%;
+  left: 8%;
+  color: var(--text-primary);
+  font-family: monospace;
+  max-width: 400px;
+  text-align: left;
+}
+
+.intro-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--muted-green);
+  text-shadow: 0 0 15px var(--muted-green), 0 0 30px var(--muted-green);
+  margin-bottom: 0.5rem;
+}
+
+.intro-subtitle {
+  font-size: 1rem;
+  color: #3eea83;
+  text-shadow: 0 0 10px var(--muted-green);
+  margin-bottom: 1rem;
+}
+
+/* Intro Button */
+.intro-button {
+  background: transparent;
+  border: 2px solid var(--muted-green);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: monospace;
+  color: var(--muted-green);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  animation: pulse 1.5s infinite;
+}
+
+.intro-button:hover {
+  background: var(--muted-green);
+  color: var(--bg-dark);
+}

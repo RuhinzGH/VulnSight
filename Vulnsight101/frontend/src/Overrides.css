@@ -1,0 +1,104 @@
+/* Force main-title to be consistent everywhere */
+body .main-title {
+  font-size: 24px !important;
+  line-height: 26px !important;
+  margin: 0 !important;
+  transform: none !important;
+  position: relative !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+  -webkit-text-size-adjust: 100% !important;
+}
+/* --- AI Summary Card (Centered + Consistent) --- */
+.ai-summary-card {
+  position: relative;
+  background-color: #141b21; /* Use dark-bg for better contrast */
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 0 10px rgba(58, 208, 137, 0.15);
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+  animation: card-fade-in 0.4s ease-out forwards;
+  max-width: 85%;
+  margin: 1.5rem auto; /* centers horizontally */
+  transform: none;
+}
+
+.ai-summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(58, 208, 137, 0.25);
+}
+
+/* 1. Main Heading: "AI Summary" (Point 1, 5) */
+/* The LLM must output this as an H2 or higher. We target 'h2' for the main heading */
+.ai-summary-card h2 {
+  font-size: 1.5rem; /* Bigger heading */
+  font-weight: 700;
+  color: var(--neon-green); /* Bright neon green */
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 8px rgba(62, 234, 131, 0.5);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+/* 2. Subheading: Vulnerability Name (Point 2, 5) */
+/* The LLM must output this as an H3 (###) */
+.ai-summary-card h3 {
+  font-size: 1.15rem; /* Sub-heading size */
+  font-weight: 600;
+  color: var(--muted-green); /* Muted green for a softer sub-heading */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 4px rgba(62, 234, 131, 0.2);
+}
+
+/* 3. & 4. Style for Bolded Text (Risk: / Remediation:) (Points 3, 4) */
+/* This ensures the labels are neon green and bold */
+.ai-summary-card p strong {
+    color: var(--neon-green);
+    font-weight: 700;
+    text-shadow: 0 0 2px var(--muted-green);
+}
+
+/* 5. Font and Paragraph consistency */
+.ai-summary-card p,
+.ai-summary-card li,
+.ai-summary-card pre {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ... (Rest of existing styles below this line) ... */
+.ai-summary-card pre {
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  color: var(--neon-green);
+  box-shadow: inset 0 0 5px rgba(58, 208, 137, 0.1);
+}
+
+/* --- Hover Light Sweep --- */
+.ai-summary-card::before {
+/* ... (existing styles) ... */
+}
+
+.ai-summary-card:hover::before {
+/* ... (existing styles) ... */
+}
+
+/* --- Animations --- */
+@keyframes light-sweep {
+/* ... (existing styles) ... */
+}
+
+@keyframes card-fade-in {
+/* ... (existing styles) ... */
+}
